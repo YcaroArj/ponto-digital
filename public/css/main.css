@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600&family=Inter:wght@300;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,700;1,100;1,600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+:root {
+    --primary: #43C6D9;
+    --secondary: #04344B;
+    --third: #2b83ac;
+    --white: #fff;
+    --black: #000;
+}
+
+.nav {
+    background: linear-gradient(100deg ,var(--primary), var(--secondary));
+    padding: 10px 100px;
+}
+
+.navbar-brand {
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.collapse ul li a{
+    position: relative;
+    left: 40px;
+    color: var(--white);
+    font-size: 1.1rem;
+}
+
+.collapse ul li a:hover{
+    color: var(--primary);
+}
+
+.dropdown-menu{
+    background: var(--secondary);
+}
+
+.perfil h3{
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.btn-group ul li a{
+    color: var(--white);
+}
+
+.div-content {
+    padding: 50px 70px;
+}
+
+.div-container {
+    padding: 30px;
+    border-radius: 20px;
+    height: 600px;
+    box-shadow: 0px 0px 30px 4px rgba(0,0,0,0.3);
+}
+
+.div-container img {
+    width: 7rem;
+    border-radius: 50%;
+    margin: 0 0.4rem;
+  }
+
+.div-info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.info-user{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.info-user,
+.info-carga-h {
+    margin-top: 40px;
+}
+
+.info-user h1{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.info-user h2{
+    font-size: 1.4rem;
+    color: var(--secondary);
+}
+
+.info-user h3{
+    font-size: 1.2rem;
+    color: var(--secondary);
+}
+
+
+.info-carga-h {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-carga-h h1{
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.info-carga-h h2{
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.div-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card-hour-t {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    background: var(--primary);
+    border-radius: 20px;
+    height: 100px;
+}
+.card-hour-e {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    background: var(--third);
+    border-radius: 20px;
+    height: 100px;
+}
+.card-falta {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    background: var(--secondary);
+    border-radius: 20px;
+    height: 100px;
+}
+
+.card-hour-t h3,
+.card-hour-e h3,
+.card-falta h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.card-hour-t p,
+.card-hour-e p,
+.card-falta p{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--black);
+}
+
+
+.col {
+    height: 250px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-entrada {
+    height: 150px;
+    width: 300px;
+    border: none;
+    background: linear-gradient(100deg ,var(--primary), var(--secondary));
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 20px;
+}
+
+.btn-saida-al {
+    height: 150px;
+    width: 300px;
+    border: none;
+    background: linear-gradient(100deg ,var(--primary), var(--secondary));
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 20px;
+}
+
+.btn-retorno-al {
+    height: 150px;
+    width: 300px;
+    border: none;
+    background: linear-gradient(100deg ,var(--primary), var(--secondary));
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 20px;
+}
+.btn-saida {
+    height: 150px;
+    width: 300px;
+    border: none;
+    background: linear-gradient(100deg ,var(--primary), var(--secondary));
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 20px;
+}
+
