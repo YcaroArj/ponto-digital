@@ -9,6 +9,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Horario extends Model
 {
+    protected $table = "horarios";
     use HasApiTokens, HasFactory, Notifiable;
     /**
      * The attributes that are mass assignable.
@@ -16,6 +17,7 @@ class Horario extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'dia',
         'entrada',
         'saidaAlmoco',
         'retornoAlmoco',

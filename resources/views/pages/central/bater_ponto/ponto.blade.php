@@ -10,27 +10,16 @@
             <div class="container text-center">
                 <div class="row">
                     <div class="col-9">
-                        <form method="POST" action="{{ route('Cad.hora') }}">
                             <div class="row">
-                                <div class="col">
-                                    <button class="btn-entrada" type="submit">Registrar Entrada</button>
-                                </div>
-                                <div class="col">
-                                    <button class="btn-saida-al" type="submit">Registrar Saida para Almoço</button>
+                                <div class="col-ponto col">
+                                <form method="POST" action="{{ route('Entrada')}}">
+                                    @csrf
+                                    <button class="btn-ponto" type="submit">Registrar Entrada</button>
+                                </form> 
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <button class="btn-retorno-al" type="submit">Registrar Retorno do Almoço</button>
-                                </div>
-                                <div class="col">
-                                    <button class="btn-saida" type="submit">Registrar Saida</button>
-                                </div>
-                            </div>
-
-                        </form>
                     </div>
-                    <div class="col-3">
+                    <div class="col-clock col-3">
                         <section class="clock container">
                             <div class="clock__container grid">
                                 <div class="clock__content grid">

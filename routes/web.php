@@ -14,7 +14,10 @@ Route::post('/', [CadastrarFuncionarioController::class, 'CadFuncionario'])->nam
 
 Route::prefix('dashboard')->middleware('web')->group(function () {
 
-    Route::post('/', [CadastrarHorarioController::class, 'registrarHorarios'])->name('Cad.hora');
+    Route::post('/', [CadastrarHorarioController::class, 'registrarEntrada'])->name('Entrada');
+    // Route::post('/', [CadastrarHorarioController::class, 'registrarSaidaAlmoco'])->name('SaidaAlmoco');
+    // Route::post('/', [CadastrarHorarioController::class, 'registrarRetornoAlmoco'])->name('RetornoAlmoco');
+    // Route::post('/', [CadastrarHorarioController::class, 'registrarSaida'])->name('Saida');
 
     Route::middleware('web')->group(function () {
         Route::get('/', [RotasController::class, 'showCentral'])->name('dashboard');

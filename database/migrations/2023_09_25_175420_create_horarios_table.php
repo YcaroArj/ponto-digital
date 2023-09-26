@@ -12,13 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('horarios', function (Blueprint $table) {
-            $table->id();
-            $table->dateTime('entrada');
-            $table->dateTime('saidaAlmoco');
-            $table->dateTime('retornoAlmoco');
-            $table->dateTime('saida');
+            $table->increments('id');
+            $table->bigInteger('userid')->unsigned();;
+            $table->foreign('userid')->references('id')->on('funcionarios')->onDelete('cascade');
+            $table->date('dia');
+            $table->Time('entrada');
+            $table->Time('saidaAlmoco');
+            $table->Time('retornoAlmoco');
+            $table->Time('saida');
             $table->timestamps();
         });
+
+        DB::statement("ALTER TABLE horarios AUTO_INCREMENT = 311000");
     }
 
     /**
