@@ -64,11 +64,19 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Cargo</label>
-                                        <input type="text" name="cargo" class="form-control">
+                                        <select class="form-control" id="selectStatus" name="cargo">
+                                            <option value="Assessor l">Assessor l</option>
+                                            <option value="Assessor ll">Assessor ll</option>
+                                            <option value="Assessor lll">Assessor lll</option>
+                                            <option value="Estágiario">Estágiario</option>
+                                        </select>
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Tipo de Contrato</label>
-                                        <input type="text" name="TipoContrato" class="form-control">
+                                        <select class="form-control" id="selectStatus" name="TipoContrato">
+                                            <option value="Concursado">Concursado</option>
+                                            <option value="Contratado">Contradado</option>
+                                        </select>
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">E-mail</label>

@@ -13,7 +13,7 @@
                             <img src="{{ asset('img/user.jpg') }}" alt="">
 
                             <div class="info-user">
-                                <h1>{{ Auth::user()->name }}</h1>
+                                <h1>{{ Auth::user()->nome }}</h1>
                                 <h2>{{ Auth::user()->cargo }}</h2>
                                 <h3>{{ Auth::user()->TipoContrato }}</h3>
                             </div>

@@ -9,38 +9,42 @@ use Illuminate\Support\Facades\Auth;
 class CadastrarHorarioController extends Controller
 {
 
-    public function registrarEntrada(Request $request)
+    public function registrarEntrada()
     {
-        date_default_timezone_set('America/Sao_Paulo');
+
+        $id = Auth::id();
         $dia = date('Y:m:d');
-        $horaNow = date('H:m:s');
-         $hora = array(
-            'userid'=> ,
+        $horaNow = now();
+        $hora = array(
+            'userid' => $id,
             'dia' => $dia,
             'entrada' => $horaNow
         );
 
         Horario::create($hora);
 
-        return view('pages.central.bater_ponto.ponto');
+        return redirect()->back();
     }
-    
-   /* public function registrarSaidaAlmoco(Request $request)
+
+    public function registrarSaidaAlmoco()
     {
-        
-        date_default_timezone_set('America/Sao_Paulo');
-        $horaNow = date('H:m:s');
-         $hora = array(
-            'SaidaAlmoco' => $horaNow
+        $id = Auth::id();
+        $dia = date('Y:m:d');
+        $horaNow = now();
+        $hora = array(
+            'userid' => $id,
+            'dia' => $dia,
+            'saidaAlmoco' => $horaNow
         );
 
         Horario::create($hora);
 
-        return view('pages.central.bater_ponto.ponto');
+        return redirect()->back();
     }
+    /*
     public function registrarRetornoAlmoco(Request $request)
     {
-        
+
         date_default_timezone_set('America/Sao_Paulo');
         $horaNow = date('H:m:s');
          $hora = array(
@@ -49,12 +53,12 @@ class CadastrarHorarioController extends Controller
 
         Horario::create($hora);
 
-        return view('pages.central.bater_ponto.ponto');
+        return redirect()->back();
     }
 
     public function registrarSaida(Request $request)
     {
-        
+
         date_default_timezone_set('America/Sao_Paulo');
         $horaNow = date('H:m:s');
          $hora = array(
@@ -63,6 +67,6 @@ class CadastrarHorarioController extends Controller
 
         Horario::create($hora);
 
-        return view('pages.central.bater_ponto.ponto');
+        return redirect()->back();
     }*/
 }

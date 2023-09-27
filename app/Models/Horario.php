@@ -17,6 +17,7 @@ class Horario extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'userid',
         'dia',
         'entrada',
         'saidaAlmoco',

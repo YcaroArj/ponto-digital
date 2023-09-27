@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('horarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('userid')->unsigned();;
+            $table->bigInteger('userid')->unsigned();
             $table->foreign('userid')->references('id')->on('funcionarios')->onDelete('cascade');
             $table->date('dia');
             $table->Time('entrada');
@@ -22,8 +22,6 @@ return new class extends Migration
             $table->Time('saida');
             $table->timestamps();
         });
-
-        DB::statement("ALTER TABLE horarios AUTO_INCREMENT = 311000");
     }
 
     /**
