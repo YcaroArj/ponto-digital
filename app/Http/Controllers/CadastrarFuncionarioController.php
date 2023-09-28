@@ -16,4 +16,5 @@ class CadastrarFuncionarioController extends Controller
 
         return view('welcome');
     }
+
 }
