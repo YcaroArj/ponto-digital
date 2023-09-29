@@ -14,16 +14,30 @@
                             <div class="col-ponto col">
                                 <form method="POST" action="{{ route('Entrada') }}">
                                     @csrf
-                                    <button class="btn-ponto" type="submit">Registrar Entrada</button>
+                                    <button class="btn-ponto" type="submit">Registrar Entrada - T1</button>
                                 </form>
                             </div>
                             <div class="col-ponto col">
                                 <form method="POST" action="{{ route('SaidaAlmoco') }}">
                                     @csrf
-                                    <button class="btn-ponto" type="submit">Registrar Saida para Almoço</button>
+                                    <button class="btn-ponto" type="submit">Registrar Saida - T1</button>
                                 </form>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-ponto col">
+                                <form method="POST" action="{{ route('RetornoAlmoco') }}">
+                                    @csrf
+                                    <button class="btn-ponto" type="submit">Registrar Entrada - T2</button>
+                                </form>
+                            </div>
+                            <div class="col-ponto col">
+                                <form method="POST" action="{{ route('Saida') }}">
+                                    @csrf
+                                    <button class="btn-ponto" type="submit">Registrar Saida - T2</button>
+                                </form>
+                            </div>
+                        </div> 
                     </div>
                     <div class="col-clock col-3">
                         <section class="clock container">
