@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class CadastrarHorarioController extends Controller
 {
-
-
     public function registrarEntrada()
     {
         date_default_timezone_set('America/Sao_Paulo');

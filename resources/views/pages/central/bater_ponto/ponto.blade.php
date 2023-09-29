@@ -9,7 +9,7 @@
         <div class="div-container">
             <div class="container text-center">
                 <div class="row">
-                    <div class="col-9">
+                    <div class="col">
                         <div class="row">
                             <div class="col-ponto col">
                                 <form method="POST" action="{{ route('Entrada') }}">
@@ -37,9 +37,9 @@
                                     <button class="btn-ponto" type="submit">Registrar Saida - T2</button>
                                 </form>
                             </div>
-                        </div> 
-                    </div>
-                    <div class="col-clock col-3">
+                        </div>
+                        <div class="row">
+                        <div class="col-clock">
                         <section class="clock container">
                             <div class="clock__container grid">
                                 <div class="clock__content grid">
@@ -57,8 +57,11 @@
 
                                     <div>
                                         <div class="clock__text">
-                                            <div class="clock__text-hour" id="text-hour"></div>
-                                            <div class="clock__text-minutes" id="text-minutes"></div>
+                                            <div class="container-clock">
+                                                <div class="clock__text-hour" id="text-hour"></div>
+                                                <div class="clock__text-minutes" id="text-minutes"></div>
+                                                <div class="clock__text-seconds" id="text-seconds"></div>
+                                            </div>
                                             <div class="clock__text-ampm" id="text-ampm"></div>
                                         </div>
 
@@ -72,6 +75,8 @@
                                 </div>
                             </div>
                         </section>
+                    </div>
+                        </div>
                     </div>
                 </div>
             </div>

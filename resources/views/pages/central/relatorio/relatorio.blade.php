@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-3">
-                    <div class="div-container">
+                    <div class="card-user">
                         <div class="div-info">
                             <img src="{{ asset('img/user.jpg') }}" alt="">
 
