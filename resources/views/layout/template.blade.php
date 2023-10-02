@@ -44,8 +44,8 @@
                         {{ Auth::user()->nome }}
                     </button>
                     <ul class="dropdown-menu dropdown-menu-lg-end">
-                        <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li><a class="dropdown-item" href="#">Configuração</a></li>
+                        <li><a class="dropdown-item" href="{{ route ('perfil') }}">Perfil</a></li>
+                        <li><a class="dropdown-item" href="{{ route ('configuracao') }}">Configuração</a></li>
                         <li><a class="dropdown-item" href="{{ route('login.page') }}">Sair</a></li>
                     </ul>
                 </div>

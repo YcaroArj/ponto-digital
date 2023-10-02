@@ -41,7 +41,7 @@ const clockText = () =>{
 
     // We change the hours from 24 to 12 hours and establish whether it is AM or PM
     if(hh >= 12){
-        hh = hh - 12
+        hh = hh 
         ampm = 'PM'
     }else{
         ampm = 'AM'
@@ -68,8 +68,6 @@ const clockText = () =>{
     // Show seconds
     textSeconds.innerHTML = `${ss}`
 
-    // Show am or pm
-    textAmPm.innerHTML = ampm
 
     // If you want to show the name of the day of the week
     // let week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']

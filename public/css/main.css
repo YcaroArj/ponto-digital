@@ -420,6 +420,7 @@
   .container-clock{
     width: 200px;
     display: flex;
+    justify-content: center;
   }
 
   .clock__text-hour,
