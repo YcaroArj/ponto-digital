@@ -20,7 +20,7 @@ class CadastrarHorarioController extends Controller
             'entrada' => $horaNow
         );
         // $diaAtual = DB::select('SELECT dia FROM horarios WHERE dia,' , $dia);
-        $diaAtual = DB::select("SELECT dia FROM horarios WHERE dia = '$dia'");
+        $diaAtual = DB::select("SELECT dia FROM horarios WHERE dia = '$dia' AND userid = '$id'");
         if($diaAtual){
             
         }else{
@@ -32,21 +32,22 @@ class CadastrarHorarioController extends Controller
     public function registrarSaidaAlmoco()
     {
         date_default_timezone_set('America/Sao_Paulo');
+        $id = Auth::id();
         $dia = date('Y:m:d');
         $horaNow = date('H:i:s');
 
         // $diaAtual = DB::select('SELECT dia FROM horarios WHERE dia,' , $dia);
         $diaAtual = DB::select("SELECT dia FROM horarios WHERE dia = '$dia'");
         if($diaAtual){
-            $horaCadastrada = DB::select("SELECT saidaAlmoco FROM horarios WHERE saidaAlmoco is null AND dia = '$dia'");
+            $horaCadastrada = DB::select("SELECT saidaAlmoco FROM horarios WHERE saidaAlmoco is null AND dia = '$dia' AND userid = '$id'");
             if($horaCadastrada){
                 DB::table('horarios')
                 ->where('dia', $dia)
+                ->where('userid', $id)
                 ->update(['saidaAlmoco' => $horaNow]);
             }else{
                 return redirect()->back();
             }
-            
         }else{
            
         }
@@ -57,16 +58,18 @@ class CadastrarHorarioController extends Controller
     public function registrarRetornoAlmoco()
     {
         date_default_timezone_set('America/Sao_Paulo');
+        $id = Auth::id();
         $dia = date('Y:m:d');
         $horaNow = date('H:i:s');
 
         // $diaAtual = DB::select('SELECT dia FROM horarios WHERE dia,' , $dia);
         $diaAtual = DB::select("SELECT dia FROM horarios WHERE dia = '$dia'");
         if($diaAtual){
-            $horaCadastrada = DB::select("SELECT retornoAlmoco FROM horarios WHERE retornoAlmoco is null AND dia = '$dia'");
+            $horaCadastrada = DB::select("SELECT retornoAlmoco FROM horarios WHERE retornoAlmoco is null AND dia = '$dia' AND userid = '$id'");
             if($horaCadastrada){
                 DB::table('horarios')
                 ->where('dia', $dia)
+                ->where('userid', $id)
                 ->update(['retornoAlmoco' => $horaNow]);
             }else{
                 return redirect()->back();
@@ -82,16 +85,18 @@ class CadastrarHorarioController extends Controller
     public function registrarSaida()
     {
         date_default_timezone_set('America/Sao_Paulo');
+        $id = Auth::id();
         $dia = date('Y:m:d');
         $horaNow = date('H:i:s');
 
         // $diaAtual = DB::select('SELECT dia FROM horarios WHERE dia,' , $dia);
         $diaAtual = DB::select("SELECT dia FROM horarios WHERE dia = '$dia'");
         if($diaAtual){
-            $horaCadastrada = DB::select("SELECT saida FROM horarios WHERE saida is null AND dia = '$dia'");
+            $horaCadastrada = DB::select("SELECT saida FROM horarios WHERE saida is null AND dia = '$dia' AND userid = '$id'");
             if($horaCadastrada){
                 DB::table('horarios')
                 ->where('dia', $dia)
+                ->where('userid', $id)
                 ->update(['saida' => $horaNow]);
             }else{
                 return redirect()->back();

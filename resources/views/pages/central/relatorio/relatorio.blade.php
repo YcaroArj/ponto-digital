@@ -26,7 +26,12 @@
                 </div>
                 <div class="div-cards col-3">
                     <div class="card-hour-t">
-                        <h3>30h</h3>
+                        <h3>@forelse($horaEntrada as $calcHora)
+                            {{ $calcHora->entrada}}
+                            @empty
+                            {{"Não Existem dados nem registros cadastrados."}}
+                            @endforelse
+                        </h3>
                         <p>Horas Trabalhadas</p>
                     </div>
                     <div class="card-hour-e">
