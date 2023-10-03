@@ -21,20 +21,26 @@ class CalcularHoraController extends Controller
             ->get();
 
         $soma = 0;
+
         foreach ($MesAtual as $item) {
+            $dias = $item->dia;
             $horaEntradaT1 = $item->entrada;
-            $horaSaidaT1 = $item->saidaAlmoco;
-            $horaEntradaT2 = $item->retornoAlmoco;
             $horaSaidaT2 = $item->saida;
 
             $HEntrada = intval(($horaEntradaT1));
             $HSaida = intval(($horaSaidaT2));
 
             $soma = $soma + ($HSaida - $HEntrada);
+            
+           
         };
+        $mes = $MesAtual;
 
-        return view('pages.central.relatorio.relatorio', [
-            'soma' => $soma,
-        ]);
+        $data = array(
+            'soma'=> $soma,
+            'mes'=> $mes
+        );
+
+         return view('pages.central.relatorio.relatorio')->with($data);
     }
 }

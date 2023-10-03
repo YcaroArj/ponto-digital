@@ -1,5 +1,4 @@
 @extends('layout.template')
-
 @section('title', 'Relatório')
 
 @section('content')
@@ -42,21 +41,22 @@
                     <thead>
                         <tr>
                             <th scope="col">Dia</th>
-                            <th scope="col">Entrada>
+                            <th scope="col">Entrada</th>
                             <th scope="col">Saida para Almoco</th>
                             <th scope="col">Retorno do Almoco</th>
                             <th scope="col">Saida</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($mes as $item)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>08:00:00</td>
-                            <td>11:00:00</td>
-                            <td>11:20:00</td>
-                            <td>14:00:00</td>
+                            <th scope="row">{{$item->dia->}}</th>
+                            <td>{{ $item->entrada }}</td>
+                            <td>{{ $item->saidaAlmoco}}</td>
+                            <td>{{ $item->retornoAlmoco}}</td>
+                            <td>{{ $item->saida }}</td>
                         </tr>
-
+                        @endforeach
                     </tbody>
                 </table>
             </div>
