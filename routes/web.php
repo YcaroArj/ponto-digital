@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UserController::class, 'showLogin'])->name('login.page');
 Route::get('/auth', [UserController::class, 'auth'])->name('auth.user');
 Route::post('/', [CadastrarFuncionarioController::class, 'CadFuncionario'])->name('Cad.user');
-Route::get('/post', [CalcularHoraController::class, 'HorasTrabalhadas']);
+Route::get('/post', [CalcularHoraController::class, 'HorasTrabalhadas'])->name('calc.hora');
 
 Route::prefix('dashboard')->middleware('web')->group(function () {
 
@@ -22,7 +22,7 @@ Route::prefix('dashboard')->middleware('web')->group(function () {
     Route::middleware('web')->group(function () {
         Route::get('/', [RotasController::class, 'showCentral'])->name('dashboard');
         Route::get('/BaterPonto', [RotasController::class, 'showPonto'])->name('bater_ponto');
-        Route::get('/relatorio', [RotasController::class, 'showRelatorio'])->name('relatorio');
+        Route::get('/relatorio', [CalcularHoraController::class, 'HorasTrabalhadas'])->name('relatorio');
         Route::get('/Help', [RotasController::class, 'showHelp'])->name('help');
         Route::get('/Perfil', [RotasController::class, 'showPerfil'])->name('perfil');
         Route::get('/Configuracao', [RotasController::class, 'showConfiguracao'])->name('configuracao');

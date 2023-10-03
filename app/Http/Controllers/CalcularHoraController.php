@@ -11,23 +11,30 @@ class CalcularHoraController extends Controller
     public function HorasTrabalhadas()
     {
         $id = Auth::id();
-        $dia = date('m');
-        $dia = date('Y-m-d');
-        $teste1 = DB::table('horarios')->where('userid', $id)->where(MONTH, '');
+        $Mes = date('m');
+        // $mesAtual = DB::select("SELECT dia FROM horarios WHERE MONTH(dia)=MONTH(NOW()) AND userid = '$id'");
+        // var_dump($mesAtual);
+
+        $MesAtual = DB::table('horarios')
+            ->where('userid', $id)
+            ->whereMonth('dia', $Mes)
+            ->get();
+
         $soma = 0;
-        foreach ($teste1 as $item) {
-            $horaEntrada = $item->entrada;
-            $horaSaida = $item->saida;
+        foreach ($MesAtual as $item) {
+            $horaEntradaT1 = $item->entrada;
+            $horaSaidaT1 = $item->saidaAlmoco;
+            $horaEntradaT2 = $item->retornoAlmoco;
+            $horaSaidaT2 = $item->saida;
 
-            $HEntrada = intval(($horaEntrada));
-            $HSaida = intval(($horaSaida));
+            $HEntrada = intval(($horaEntradaT1));
+            $HSaida = intval(($horaSaidaT2));
 
-           
-            $soma = $soma + ($HSaida - $HEntrada) ;
-            echo "<br>";
-            echo $dia;
+            $soma = $soma + ($HSaida - $HEntrada);
         };
-        echo "<br>";
-        echo $soma;
+
+        return view('pages.central.relatorio.relatorio', [
+            'soma' => $soma,
+        ]);
     }
 }

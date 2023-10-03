@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 class RotasController extends Controller
@@ -15,16 +16,11 @@ class RotasController extends Controller
         return view('pages.central.bater_ponto.ponto');
     }
 
-    public function showRelatorio()
-    {
-        return view('pages.central.relatorio.relatorio');
-    }
-
     public function showHelp()
     {
         return view('pages.central.help.help');
     }
-    
+
     public function showPerfil()
     {
         return view('pages.funcionario.perfil');

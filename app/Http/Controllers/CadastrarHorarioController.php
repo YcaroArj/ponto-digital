@@ -19,11 +19,10 @@ class CadastrarHorarioController extends Controller
             'dia' => $dia,
             'entrada' => $horaNow
         );
-        // $diaAtual = DB::select('SELECT dia FROM horarios WHERE dia,' , $dia);
+
         $diaAtual = DB::select("SELECT dia FROM horarios WHERE dia = '$dia' AND userid = '$id'");
-        if($diaAtual){
-            
-        }else{
+        if ($diaAtual) {
+        } else {
             Horario::create($hora);
         }
         return redirect()->back();
@@ -36,20 +35,18 @@ class CadastrarHorarioController extends Controller
         $dia = date('Y:m:d');
         $horaNow = date('H:i:s');
 
-        // $diaAtual = DB::select('SELECT dia FROM horarios WHERE dia,' , $dia);
         $diaAtual = DB::select("SELECT dia FROM horarios WHERE dia = '$dia'");
-        if($diaAtual){
+        if ($diaAtual) {
             $horaCadastrada = DB::select("SELECT saidaAlmoco FROM horarios WHERE saidaAlmoco is null AND dia = '$dia' AND userid = '$id'");
-            if($horaCadastrada){
+            if ($horaCadastrada) {
                 DB::table('horarios')
-                ->where('dia', $dia)
-                ->where('userid', $id)
-                ->update(['saidaAlmoco' => $horaNow]);
-            }else{
+                    ->where('dia', $dia)
+                    ->where('userid', $id)
+                    ->update(['saidaAlmoco' => $horaNow]);
+            } else {
                 return redirect()->back();
             }
-        }else{
-           
+        } else {
         }
 
         return redirect()->back();
@@ -62,21 +59,18 @@ class CadastrarHorarioController extends Controller
         $dia = date('Y:m:d');
         $horaNow = date('H:i:s');
 
-        // $diaAtual = DB::select('SELECT dia FROM horarios WHERE dia,' , $dia);
         $diaAtual = DB::select("SELECT dia FROM horarios WHERE dia = '$dia'");
-        if($diaAtual){
+        if ($diaAtual) {
             $horaCadastrada = DB::select("SELECT retornoAlmoco FROM horarios WHERE retornoAlmoco is null AND dia = '$dia' AND userid = '$id'");
-            if($horaCadastrada){
+            if ($horaCadastrada) {
                 DB::table('horarios')
-                ->where('dia', $dia)
-                ->where('userid', $id)
-                ->update(['retornoAlmoco' => $horaNow]);
-            }else{
+                    ->where('dia', $dia)
+                    ->where('userid', $id)
+                    ->update(['retornoAlmoco' => $horaNow]);
+            } else {
                 return redirect()->back();
             }
-            
-        }else{
-           
+        } else {
         }
 
         return redirect()->back();
@@ -89,24 +83,20 @@ class CadastrarHorarioController extends Controller
         $dia = date('Y:m:d');
         $horaNow = date('H:i:s');
 
-        // $diaAtual = DB::select('SELECT dia FROM horarios WHERE dia,' , $dia);
         $diaAtual = DB::select("SELECT dia FROM horarios WHERE dia = '$dia'");
-        if($diaAtual){
+        if ($diaAtual) {
             $horaCadastrada = DB::select("SELECT saida FROM horarios WHERE saida is null AND dia = '$dia' AND userid = '$id'");
-            if($horaCadastrada){
+            if ($horaCadastrada) {
                 DB::table('horarios')
-                ->where('dia', $dia)
-                ->where('userid', $id)
-                ->update(['saida' => $horaNow]);
-            }else{
+                    ->where('dia', $dia)
+                    ->where('userid', $id)
+                    ->update(['saida' => $horaNow]);
+            } else {
                 return redirect()->back();
             }
-            
-        }else{
-           
+        } else {
         }
 
         return redirect()->back();
     }
-
 }
