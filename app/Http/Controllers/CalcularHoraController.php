@@ -12,8 +12,6 @@ class CalcularHoraController extends Controller
     {
         $id = Auth::id();
         $Mes = date('m');
-        // $mesAtual = DB::select("SELECT dia FROM horarios WHERE MONTH(dia)=MONTH(NOW()) AND userid = '$id'");
-        // var_dump($mesAtual);
 
         $MesAtual = DB::table('horarios')
             ->where('userid', $id)
@@ -23,7 +21,6 @@ class CalcularHoraController extends Controller
         $soma = 0;
 
         foreach ($MesAtual as $item) {
-            $dias = $item->dia;
             $horaEntradaT1 = $item->entrada;
             $horaSaidaT2 = $item->saida;
 
@@ -31,16 +28,23 @@ class CalcularHoraController extends Controller
             $HSaida = intval(($horaSaidaT2));
 
             $soma = $soma + ($HSaida - $HEntrada);
-            
-           
         };
         $mes = $MesAtual;
 
+        $cargo = DB::select("SELECT cargo FROM funcionarios WHERE id = '$id' AND cargo = 'Estagiário'");
+
+        if ($cargo) {
+            $cargaHoraria = "96";
+        } else {
+            $cargaHoraria = "200";
+        }
+
         $data = array(
-            'soma'=> $soma,
-            'mes'=> $mes
+            'soma' => $soma,
+            'mes' => $mes,
+            'cargaHoraria' => $cargaHoraria
         );
 
-         return view('pages.central.relatorio.relatorio')->with($data);
+        return view('pages.central.relatorio.relatorio')->with($data);
     }
 }

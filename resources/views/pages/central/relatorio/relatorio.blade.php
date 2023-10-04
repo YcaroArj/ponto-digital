@@ -17,7 +17,7 @@
                         </div>
                         <div class="info-carga-h">
                             <h1>Carga Horária</h1>
-                            <h2>96 Horas</h2>
+                            <h2>{{ $cargaHoraria }}h</h2>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                     <tbody>
                         @foreach ($mes as $item)
                         <tr>
-                            <th scope="row">{{$item->dia->}}</th>
+                            <th scope="row">{{$item->dia}}</th>
                             <td>{{ $item->entrada }}</td>
                             <td>{{ $item->saidaAlmoco}}</td>
                             <td>{{ $item->retornoAlmoco}}</td>
