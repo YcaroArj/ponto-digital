@@ -4,25 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CargaHorariaController extends Controller
 {
     public function cargaHoraria()
     {
+        $id = Auth::id();
+        $Mes = date('m');
+        $Ano = date('Y');
 
-        $cargo = Auth::cargo();
-        $cargaHoraria = 0;
+        $dias = cal_days_in_month ( CAL_GREGORIAN, $Mes , $Ano );
+        // $query = DB::select("SELECT `dia` FROM `horarios` WHERE WEEKDAY (`dia`) != 5 and WEEKDAY (`dia`) != 6");
+        
+        // $query = DB::table('horarios')
+        // ->where('userid', $id)
+        // ->whereRaw('WEEKDAY(dia) != 5')
+        // ->whereRaw('WEEKDAY(dia) != 6')
+        // ->get();
+        
+        $query = DB::table('horarios')
+        ->where('userid', $id)
+        ->whereMonth('dia', $Mes)
+        ->whereRaw('WEEKDAY(dia) != 5')
+        ->whereRaw('WEEKDAY(dia) != 6')
+        ->get();
 
-        if ($cargo = 'Estágiário') {
-            $cargaHoraria = 96;
-        } else {
-            $cargaHoraria = 200;
-        }
+        $soma = 0;
 
-        $data = array(
-            'cargaHoraria' => $cargaHoraria
-        );
-
-        return view('pages.central.relatorio.relatorio')->with($data);
+        foreach ($query as $item) {
+            $soma =  $soma + 1;
+        };
+        
+     echo $soma;
     }
 }
