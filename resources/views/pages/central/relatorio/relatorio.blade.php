@@ -28,11 +28,11 @@
                     <p>Horas Trabalhadas</p>
                 </div>
                 <div class="card-hour-e">
-                    <h3>3h</h3>
+                    <h3>{{$totalHorasExtras}}h</h3>
                     <p>Horas Extras</p>
                 </div>
                 <div class="card-falta">
-                    <h3>0</h3>
+                    <h3>{{ $faltas }}</h3>
                     <p>Faltas</p>
                 </div>
             </div>
