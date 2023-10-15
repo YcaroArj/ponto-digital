@@ -471,3 +471,61 @@
       margin-bottom: 3rem;
     }
   }
+
+
+
+  /*============= DADOS DO PERFIL ===============*/
+
+
+.coluna-dados{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-perfil {
+    margin-top: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    border: none;
+    height: 40px;
+}
+
+.btn-perfil{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-perfil button{
+    margin-top: 20px;
+    border: none;
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    color: var(--white);
+    background: linear-gradient(92deg ,var(--primary), var(--secondary));
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+}
+
+.info h1{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+ .profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #ccc;
+ }
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Redimensiona a imagem para caber no círculo */
+}

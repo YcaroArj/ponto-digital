@@ -3,8 +3,8 @@
 use App\Http\Controllers\CadastrarHorarioController;
 use App\Http\Controllers\CadastrarFuncionarioController;
 use App\Http\Controllers\CalcularHoraController;
+use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\RotasController;
-use App\Http\Controllers\TesteController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +23,7 @@ Route::prefix('Home')->middleware('web')->group(function () {
         Route::get('/dashboard', [RotasController::class, 'showCentral'])->name('dashboard');
         Route::get('/relatorio', [CalcularHoraController::class, 'HorasTrabalhadas'])->name('relatorio');
         Route::get('/Help', [RotasController::class, 'showHelp'])->name('help');
-        Route::get('/Perfil', [RotasController::class, 'showPerfil'])->name('perfil');
+        Route::get('/Perfil', [PerfilController::class, 'store'])->name('perfil');
         Route::get('/Configuracao', [RotasController::class, 'showConfiguracao'])->name('configuracao');
     });
 });

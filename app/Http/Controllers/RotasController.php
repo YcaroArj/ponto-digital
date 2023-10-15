@@ -21,11 +21,6 @@ class RotasController extends Controller
         return view('pages.central.help.help');
     }
 
-    public function showPerfil()
-    {
-        return view('pages.funcionario.perfil');
-    }
-
     public function showConfiguracao()
     {
         return view('pages.funcionario.configuracao');
