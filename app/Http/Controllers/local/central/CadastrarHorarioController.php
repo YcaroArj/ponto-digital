@@ -1,36 +1,50 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\local\central;
 
+use App\Http\Controllers\local\AbstractBaseController;
 use App\Models\Horario;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class CadastrarHorarioController extends Controller
+class CadastrarHorarioController extends AbstractBaseController
 {
-    public function registrarEntrada()
+    protected $id;
+    protected $dia;
+    protected $horaNow;
+    protected $diaAtual;
+    protected $hora;
+
+    public function __construct()
     {
         date_default_timezone_set('America/Sao_Paulo');
-        $id = Auth::id();
-        $dia = date('Y:m:d');
-        $horaNow = date('H:i:s');
-        $hora = array(
-            'userid' => $id,
-            'dia' => $dia,
-            'entrada' => $horaNow
-        );
+        parent::__construct();
+        $this->entity = User::class;
+        $this->pagesPath = 'pages.central.bater_ponto.lista';
+        $this->dia = date('Y:m:d');
+        $this->horaNow = date('H:i:s');
+        $this->diaAtual = DB::select("SELECT dia FROM horarios WHERE dia = '$this->dia' AND userid = '$this->id'");
+        $this->hora = [
+            'userid' => $this->id,
+            'dia' => $this->dia,
+            'entrada' => $this->horaNow
+        ];
+    }
 
-        $diaAtual = DB::select("SELECT dia FROM horarios WHERE dia = '$dia' AND userid = '$id'");
-        if ($diaAtual) {
-        } else {
-            Horario::create($hora);
-        }
+    public function registrarEntrada()
+    {
+        // if ($this->diaAtual) {
+        // } else {
+        //     Horario::create($this->hora);
+        // }
+
+        dd($this->entity);
         return redirect()->back();
     }
 
     public function registrarSaidaAlmoco()
     {
-        date_default_timezone_set('America/Sao_Paulo');
         $id = Auth::id();
         $dia = date('Y:m:d');
         $horaNow = date('H:i:s');
@@ -78,7 +92,6 @@ class CadastrarHorarioController extends Controller
 
     public function registrarSaida()
     {
-        date_default_timezone_set('America/Sao_Paulo');
         $id = Auth::id();
         $dia = date('Y:m:d');
         $horaNow = date('H:i:s');

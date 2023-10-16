@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\local\user;
 
+use App\Http\Controllers\local\AbstractBaseController;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
-class UserController extends Controller
+class UserController extends AbstractBaseController
 {
     public function showLogin()
     {
@@ -29,5 +31,14 @@ class UserController extends Controller
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+    }
+
+    public function CadastrarFuncionario(Request $request)
+    {
+        $data = $request->all();
+
+        User::create($data);
+
+        return view('welcome');
     }
 }

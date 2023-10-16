@@ -1,13 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\local\central;
 
+use App\Http\Controllers\local\AbstractBaseController;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-class CalcularHoraController extends Controller
+class RelatorioController extends AbstractBaseController
 {
+
+    public function __construct()
+    {
+        date_default_timezone_set('America/Sao_Paulo');
+        parent::__construct();
+        $this->pagesPath = 'pages.central.relatorio.lista';
+    }
 
     public function HorasTrabalhadas()
     {
@@ -29,9 +37,9 @@ class CalcularHoraController extends Controller
             $HSaida = intval(($horaSaidaT2));
 
             $horaExtra = 0;
-            if($HSaida != null){
+            if ($HSaida != null) {
                 $soma = $soma + ($HSaida - $HEntrada);
-                if($HEntrada - $HSaida > 8){
+                if ($HEntrada - $HSaida > 8) {
                     $horaEntradaT1 = 0;
                 };
             }
@@ -71,29 +79,29 @@ class CalcularHoraController extends Controller
             }
         }
 
-         // Calcula as horas extras
-         $horarios = DB::table('horarios')
-         ->where('userid',$id)
-         ->whereMonth('dia', $Mes)
-         ->get();
+        // Calcula as horas extras
+        $horarios = DB::table('horarios')
+            ->where('userid', $id)
+            ->whereMonth('dia', $Mes)
+            ->get();
 
-     $totalHorasExtras = 0;
+        $totalHorasExtras = 0;
 
-     foreach ($horarios as $horario) {
-        $VerificarCargaHoraria = DB::select("SELECT cargo FROM funcionarios WHERE id = '$id' AND cargo = 'Estagiário'");
+        foreach ($horarios as $horario) {
+            $VerificarCargaHoraria = DB::select("SELECT cargo FROM funcionarios WHERE id = '$id' AND cargo = 'Estagiário'");
 
-        $entrada = Carbon::parse($horario->entrada);
-        $saida = Carbon::parse($horario->saida);
-        $horasTrabalhadas = $entrada->diffInHours($saida);
+            $entrada = Carbon::parse($horario->entrada);
+            $saida = Carbon::parse($horario->saida);
+            $horasTrabalhadas = $entrada->diffInHours($saida);
 
-        if ($VerificarCargaHoraria) {
-            $horasExtras = max($horasTrabalhadas - 6, 0);
-        } else {
-            $horasExtras = max($horasTrabalhadas - 8, 0);
+            if ($VerificarCargaHoraria) {
+                $horasExtras = max($horasTrabalhadas - 6, 0);
+            } else {
+                $horasExtras = max($horasTrabalhadas - 8, 0);
+            }
+
+            $totalHorasExtras = $totalHorasExtras + $horasExtras;
         }
-
-         $totalHorasExtras = $totalHorasExtras + $horasExtras;
-     }
         $img = DB::select("SELECT `image` FROM `funcionarios` WHERE `id` = '$id'");
         $data = array(
             'soma' => $soma,
@@ -104,6 +112,6 @@ class CalcularHoraController extends Controller
             'img' => $img
         );
 
-        return view('pages.central.relatorio.relatorio')->with($data);
+        return view('pages.central.relatorio.lista')->with($data);
     }
 }

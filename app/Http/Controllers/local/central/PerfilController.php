@@ -1,31 +1,37 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\local\central;
 
-use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\local\AbstractBaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class PerfilController extends Controller
+class PerfilController extends AbstractBaseController
 {
-    public function store(Request $request)
-    {   
+    public function __construct()
+    {
+        date_default_timezone_set('America/Sao_Paulo');
+        parent::__construct();
+        $this->pagesPath = 'pages.funcionario.perfil';
+    }
+
+    public function store()
+    {
         $id = Auth::id();
         $data = DB::select("SELECT `image` FROM `funcionarios` WHERE `id` = '$id'");
         $data = array(
-            'data'=> $data,
+            'data' => $data,
         );
-        
-        
+
         return view('pages.funcionario.perfil')->with($data);
     }
 
-    public function UploadIcon (Request $request)
+    public function UploadIcon(Request $request)
     {
         $id = Auth::id();
         $data = $request->all();
-        $fileName = time().$request->file('image')->getClientOriginalName();
+        $fileName = time() . $request->file('image')->getClientOriginalName();
         $path = $request->file('image')->storeAs('icons', $fileName, 'custom');
         $query = DB::select("SELECT `image` FROM `funcionarios` WHERE `id` = '$id'");
 
@@ -42,7 +48,7 @@ class PerfilController extends Controller
     {
         $id = Auth::id();
         $data = $request->all();
-        
+
         dd($data);
     }
 }
