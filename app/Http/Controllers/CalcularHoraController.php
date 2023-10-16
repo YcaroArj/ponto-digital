@@ -94,13 +94,14 @@ class CalcularHoraController extends Controller
 
          $totalHorasExtras = $totalHorasExtras + $horasExtras;
      }
-
+        $img = DB::select("SELECT `image` FROM `funcionarios` WHERE `id` = '$id'");
         $data = array(
             'soma' => $soma,
             'mes' => $mes,
             'cargaHoraria' => $cargaHoraria,
             'totalHorasExtras' => $totalHorasExtras,
-            'faltas' => $faltas
+            'faltas' => $faltas,
+            'img' => $img
         );
 
         return view('pages.central.relatorio.relatorio')->with($data);

@@ -30,23 +30,4 @@ class UserController extends Controller
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
     }
-
-    public function store(Request $request)
-    {
-        $request->validate([
-            'nome' => 'required',
-            'foto_de_perfil' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adicione regras de validação aqui
-        ]);
-
-        $perfil = new Perfil();
-        $perfil->nome = $request->nome;
-
-        if ($request->hasFile('foto_de_perfil')) {
-            $perfil->foto_de_perfil = $request->file('foto_de_perfil')->store('perfis');
-        }
-
-        $perfil->save();
-
-        return "Foto de perfil enviada com sucesso!";
-    }
 }

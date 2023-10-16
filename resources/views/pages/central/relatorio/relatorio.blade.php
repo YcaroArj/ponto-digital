@@ -8,8 +8,15 @@
                 <div class="col-3">
                     <div class="card-user">
                         <div class="div-info">
-                            <img src="{{ asset('img/user.jpg') }}" alt="">
-
+                        @foreach($img as $item)
+                        <div class="profile-icon">
+                            @if ($item->image)
+                            <img src="{{ asset('img/' . $item->image) }}" class="img img-responsive">
+                            @else
+                            <img src="{{ asset('img/user.jpg') }}" class="img img-responsive">
+                            @endif
+                        </div>
+                        @endforeach
                             <div class="info-user">
                                 <h1>{{ Auth::user()->nome }}</h1>
                                 <h2>{{ Auth::user()->cargo }}</h2>

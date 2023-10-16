@@ -517,8 +517,8 @@
 }
 
  .profile-icon {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     overflow: hidden;
     background-color: #ccc;
@@ -529,3 +529,25 @@
     height: 100%;
     object-fit: cover; /* Redimensiona a imagem para caber no círculo */
 }
+
+
+.coluna-perfil{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.coluna-perfil form{
+  display: flex;
+  flex-direction: column;
+}
+
+.coluna-perfil form button {
+  margin-top: 20px;
+  border: none;
+  height: 40px;
+  border-radius: 10px;
+  color: var(--white);
+  background: linear-gradient(92deg ,var(--primary), var(--secondary));
+}
+

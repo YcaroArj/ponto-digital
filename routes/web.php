@@ -17,6 +17,8 @@ Route::prefix('Home')->middleware('web')->group(function () {
     Route::post('/', [CadastrarHorarioController::class, 'registrarSaidaAlmoco'])->name('SaidaAlmoco');
     Route::post('/EntradaT2', [CadastrarHorarioController::class, 'registrarRetornoAlmoco'])->name('RetornoAlmoco');
     Route::post('/SaidaT2', [CadastrarHorarioController::class, 'registrarSaida'])->name('Saida');
+    Route::post('/uploadIcon', [PerfilController::class, 'UploadIcon'])->name('up.icon');
+    Route::post('/AlterarSenha', [PerfilController::class, 'AlterarDados'])->name('alt.dados');
 
     Route::middleware('web')->group(function () {
         Route::get('/', [RotasController::class, 'showPonto'])->name('bater_ponto');
