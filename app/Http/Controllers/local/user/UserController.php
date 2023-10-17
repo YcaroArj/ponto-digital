@@ -10,9 +10,11 @@ use App\Models\User;
 
 class UserController extends AbstractBaseController
 {
-    public function showLogin()
+    public function __construct()
     {
-        return view('welcome');
+        date_default_timezone_set('America/Sao_Paulo');
+        parent::__construct();
+        $this->pagesPath = 'welcome';
     }
 
     public function auth(Request $request): RedirectResponse

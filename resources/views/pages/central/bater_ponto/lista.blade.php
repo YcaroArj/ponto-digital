@@ -28,18 +28,21 @@
                                     <div>
                                         <div class="clock__text">
                                             <div class="container-clock">
-                                                <div class="clock__text-hour" id="text-hour"></div>
+                                                <p class="clock__text-hour" id="text-hour">00:</p>
+                                                <p class="clock__text-minutes" id="text-minutes">00:</p>
+                                                <p class="clock__text-seconds" id="text-seconds">00</p>
+                                                <!-- <div class="clock__text-hour" id="text-hour"></div>
                                                 <div class="clock__text-minutes" id="text-minutes"></div>
-                                                <div class="clock__text-seconds" id="text-seconds"></div>
+                                                <div class="clock__text-seconds" id="text-seconds"></div> -->
                                             </div>
                                             <div class="clock__text-ampm" id="text-ampm"></div>
                                         </div>
 
                                         <div class="clock__date">
                                             <!-- <span id="date-day-week"></span> -->
-                                            <span id="date-day"></span>
-                                            <span id="date-month"></span>
-                                            <span id="date-year"></span>
+                                            <span id="date-day">00</span>
+                                            <span id="date-month">---</span>
+                                            <span id="date-year">0000</span>
                                         </div>
                                     </div>
                                 </div>
@@ -48,6 +51,7 @@
                     </div>
                     <div class=" col-sm">
                         <div class="col-ponto">
+
                             <form method="POST" action="{{ route('Entrada') }}">
                                 @csrf
                                 <button class="btn-ponto" type="submit">Registrar Entrada - Turno 1</button>

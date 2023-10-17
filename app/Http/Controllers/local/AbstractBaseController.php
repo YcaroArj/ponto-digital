@@ -4,6 +4,8 @@ namespace App\Http\Controllers\local;
 
 use App\Http\Controllers\Controller;
 use App\Services\BaseService;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 abstract class AbstractBaseController extends Controller
 {

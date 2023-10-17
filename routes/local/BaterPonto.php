@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\local\central\CadastrarHorarioController;
+use App\Http\Controllers\local\central\GetTimeController;
 use Illuminate\Support\Facades\Route;
 
-Route::controller(CadastrarHorarioController::class)->group(function () {
+Route::controller(GetTimeController::class)->group(function () {
     Route::get('/', 'index')->name('bater_ponto');
-    Route::post('cadastrarhorario/entrada', 'registrarEntrada')->name('Entrada');
-    Route::post('cadastrarhorario/saidaAlmoco', 'registrarSaidaAlmoco')->name('SaidaAlmoco');
-    Route::post('cadastrarhorario/retornoAlmoco', 'registrarRetornoAlmoco')->name('RetornoAlmoco');
-    Route::post('cadastrarhorario/saida', 'registrarSaida')->name('Saida');
+    Route::post('cadastrarhorario/entrada', 'getEntryTime')->name('Entrada');
+    Route::post('cadastrarhorario/saidaAlmoco', 'getLunchTime')->name('SaidaAlmoco');
+    Route::post('cadastrarhorario/retornoAlmoco', 'getReturnTime')->name('RetornoAlmoco');
+    Route::post('cadastrarhorario/saida', 'getExit')->name('Saida');
 });

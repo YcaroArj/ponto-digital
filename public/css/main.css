@@ -253,38 +253,6 @@
     --body-color: hsl(var(--hue-color), 10%, 16%);
   }
 
-  /*========== Button Dark/Light ==========*/
-  .clock__theme {
-    position: absolute;
-    top: -1rem;
-    right: -1rem;
-    display: flex;
-    padding: .25rem;
-    border-radius: 50%;
-    box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 0%, 100%, 1),
-                inset 1px 1px 1px hsla(var(--hue-color), 30%, 86%, 1);
-    color: var(--first-color);
-    cursor: pointer;
-    transition: .4s;
-  }
-
-  /*========== Box shadow Dark theme ==========*/
-  .dark-theme .clock__circle {
-    box-shadow: 6px 6px 16px hsla(var(--hue-color), 8%, 12%, 1),
-                -6px -6px 16px hsla(var(--hue-color), 8%, 20%, 1),
-                inset -6px -6px 16px hsla(var(--hue-color), 8%, 20%, 1),
-                inset 6px 6px 12px hsla(var(--hue-color), 8%, 12%, 1);
-  }
-
-  .dark-theme .clock__theme {
-    box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 8%, 20%, 1),
-                inset 1px 1px 1px hsla(var(--hue-color), 8%, 12%, 1);
-  }
-
-
-  a {
-    text-decoration: none;
-  }
 
   /*=============== REUSABLE CSS CLASSES ===============*/
 
@@ -559,3 +527,15 @@
   background: linear-gradient(92deg ,var(--primary), var(--secondary));
 }
 
+.table-col {
+    padding: 30px;
+    height: 500px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px 4px rgba(0,0,0,0.3);
+}
+
+.table-col a{
+  color: var(--secondary);
+  display: flex;
+  justify-content: flex-end;
+}

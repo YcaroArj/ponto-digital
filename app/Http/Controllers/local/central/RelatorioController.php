@@ -17,51 +17,46 @@ class RelatorioController extends AbstractBaseController
         $this->pagesPath = 'pages.central.relatorio.lista';
     }
 
-    public function HorasTrabalhadas()
+    public function WorkedHours()
     {
         $id = Auth::id();
-        $Mes = date('m');
+        $month = date('m');
 
-        $MesAtual = DB::table('horarios')
+        $getMonth = DB::table('horarios')
             ->where('userid', $id)
-            ->whereMonth('dia', $Mes)
+            ->whereMonth('dia', $month)
             ->get();
 
-        $soma = 0;
+        $sumTimeWorked = 0;
 
-        foreach ($MesAtual as $item) {
-            $horaEntradaT1 = $item->entrada;
-            $horaSaidaT2 = $item->saida;
+        /*---- Calcula as Horas Trabalhadas----*/
+        foreach ($getMonth as $item) {
+            $getEntry = $item->entrada;
+            $getExit = $item->saida;
 
-            $HEntrada = intval(($horaEntradaT1));
-            $HSaida = intval(($horaSaidaT2));
+            $entry = intval(($getEntry));
+            $exit = intval(($getExit));
 
-            $horaExtra = 0;
-            if ($HSaida != null) {
-                $soma = $soma + ($HSaida - $HEntrada);
-                if ($HEntrada - $HSaida > 8) {
-                    $horaEntradaT1 = 0;
-                };
+            if ($exit != null) {
+                $sumTimeWorked = $sumTimeWorked + ($exit - $entry);
             }
         };
-        $mes = $MesAtual;
 
-        $cargo = DB::select("SELECT cargo FROM funcionarios WHERE id = '$id' AND cargo = 'Estagiário'");
+        $getRole = DB::select("SELECT cargo FROM funcionarios WHERE id = '$id' AND cargo = 'Estagiário'");
 
-        if ($cargo) {
-            $cargaHoraria = "96";
-            $cargaHorariaDiaria = 6;
+        if ($getRole) {
+            $workload = "96";
         } else {
-            $cargaHoraria = "200";
-            $cargaHorariaDiaria = 8;
+            $workload = "200";
         }
 
+        /*---- Verifica Se o Funcionario faltou Ignorando Sabados e Domingos ----*/
         $currentMonth = Carbon::now()->month;
         $currentYear = Carbon::now()->year;
 
         $today = Carbon::now()->day;
 
-        $faltas = 0;
+        $fouls = 0;
 
         for ($day = 1; $day <= $today; $day++) {
             $date = Carbon::create($currentYear, $currentMonth, $day);
@@ -74,41 +69,41 @@ class RelatorioController extends AbstractBaseController
                     ->count();
 
                 if ($horariosDoDia == null) {
-                    $faltas++;
+                    $fouls++;
                 }
             }
         }
 
         // Calcula as horas extras
-        $horarios = DB::table('horarios')
+        $getTime = DB::table('horarios')
             ->where('userid', $id)
-            ->whereMonth('dia', $Mes)
+            ->whereMonth('dia', $month)
             ->get();
 
-        $totalHorasExtras = 0;
+        $totalOverTime = 0;
 
-        foreach ($horarios as $horario) {
-            $VerificarCargaHoraria = DB::select("SELECT cargo FROM funcionarios WHERE id = '$id' AND cargo = 'Estagiário'");
+        foreach ($getTime as $item) {
+            $checkWorkloadByRole = DB::select("SELECT cargo FROM funcionarios WHERE id = '$id' AND cargo = 'Estagiário'");
 
-            $entrada = Carbon::parse($horario->entrada);
-            $saida = Carbon::parse($horario->saida);
-            $horasTrabalhadas = $entrada->diffInHours($saida);
+            $entry = Carbon::parse($item->entrada);
+            $exit = Carbon::parse($item->saida);
+            $workedHours = $entry->diffInHours($exit);
 
-            if ($VerificarCargaHoraria) {
-                $horasExtras = max($horasTrabalhadas - 6, 0);
+            if ($checkWorkloadByRole) {
+                $overTime = max($workedHours - 6, 0);
             } else {
-                $horasExtras = max($horasTrabalhadas - 8, 0);
+                $overTime = max($workedHours - 8, 0);
             }
 
-            $totalHorasExtras = $totalHorasExtras + $horasExtras;
+            $totalOverTime = $totalOverTime  + $overTime;
         }
         $img = DB::select("SELECT `image` FROM `funcionarios` WHERE `id` = '$id'");
         $data = array(
-            'soma' => $soma,
-            'mes' => $mes,
-            'cargaHoraria' => $cargaHoraria,
-            'totalHorasExtras' => $totalHorasExtras,
-            'faltas' => $faltas,
+            'sumTimeWorked' => $sumTimeWorked,
+            'getMonth' => $getMonth,
+            'workload' => $workload,
+            'totalOverTime' => $totalOverTime,
+            'fouls' => $fouls,
             'img' => $img
         );
 
