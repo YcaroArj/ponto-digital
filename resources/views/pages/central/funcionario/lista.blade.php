@@ -37,6 +37,7 @@
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Cargo</label>
                                             <select class="form-control" id="selectStatus" name="cargo">
+                                                <option value="" disabled selected hidden> </option>
                                                 <option value="Secretário de Educação">Secretário de Educação</option>
                                                 <option value="Sub-Secretário de Educação">Sub-Secretário de Educação</option>
                                                 <option value="Assessor l">Assessor l</option>
@@ -50,6 +51,7 @@
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Tipo de Contrato</label>
                                             <select class="form-control" id="selectStatus" name="TipoContrato">
+                                                <option value="" disabled selected hidden></option>
                                                 <option value="Concursado">Concursado</option>
                                                 <option value="Contratado">Contradado</option>
                                             </select>
@@ -61,6 +63,16 @@
                                         <div class="mb-3">
                                             <label for="exampleInputPassword1" class="form-label">Senha</label>
                                             <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Tipo de Usuário</label>
+                                            <select class="form-control" id="selectStatus" name="TipoUsuario">
+                                                <option value="" disabled selected hidden></option>
+                                                <option value="Padrão">Padrão</option>
+                                                <option value="Administrador">Administrador</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -81,20 +93,27 @@
                 </div>
             </div>
         </div>
-        <table class="table-Users table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">E-mail</th>
-                    <th scope="col">Cargo</th>
-                    <th scope="col">Tipo de Usuário</th>
-                    <th scope="col">Editar</th>
-                </tr>
-            </thead>
-        </table>
-        <div class="table-wrapper">
+        @if(session('error'))
+        <div class="alert alert-danger" role="alert" id="liveAlertPlaceholder" style="display: flex; margin-top: 10px; justify-content: space-between;">
+            {{ session('error') }}
+            <button class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        @endif
+        @if(session('success'))
+        <div class="alert alert-success" role="alert" id="liveAlertPlaceholder" style="display: flex; margin-top: 10px; justify-content: space-between;">
+            {{ session('success') }}
+            <button class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        @endif
+        @if(session('delet'))
+        <div class="alert alert-success" role="alert" id="liveAlertPlaceholder" style="display: flex; margin-top: 10px; justify-content: space-between;">
+            {{ session('delet') }}
+            <button class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        @endif
+        <div class=" table-wrapper">
             <table class="table-Users table table-hover">
-                <!-- <thead>
+                <thead>
                     <tr>
                         <th scope="col">Nome</th>
                         <th scope="col">E-mail</th>
@@ -102,14 +121,14 @@
                         <th scope="col">Tipo de Usuário</th>
                         <th scope="col">Editar</th>
                     </tr>
-                </thead> -->
+                </thead>
                 <tbody>
                     @foreach($queryUsers->sortBy('nome') as $item)
                     <tr>
                         <td scope="row">{{ $item->nome }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->cargo }}</td>
-                        <td>Administrador</td>
+                        <td>{{ $item->TipoUsuario}}</td>
                         <td>
                             <a data-bs-toggle="modal" data-bs-target="#ModalEdit{{$item->id}}" class="fav-icon-edit"><ion-icon name="create"></ion-icon></a>
 
@@ -119,7 +138,6 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Usuário</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <form action="{{route('update-user', ['id'=>$item->id])}} " method="post">
                                             @csrf
@@ -142,8 +160,12 @@
                                                 <div class="row">
                                                     <div class="col-sm">
                                                         <div class="mb-3">
+
                                                             <label for="exampleInputEmail1" class="form-label">Cargo</label>
                                                             <select class="form-control" id="selectStatus" name="cargo">
+                                                                <option value="" disabled selected hidden>
+
+                                                                </option>
                                                                 <option value="Secretário de Educação">Secretário de Educação</option>
                                                                 <option value="Sub-Secretário de Educação">Sub-Secretário de Educação</option>
                                                                 <option value="Assessor l">Assessor l</option>
@@ -151,12 +173,14 @@
                                                                 <option value="Assessor lll">Assessor lll</option>
                                                                 <option value="Estágiario">Estágiario</option>
                                                             </select>
+
                                                         </div>
                                                     </div>
                                                     <div class="col-sm">
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Tipo de Contrato</label>
                                                             <select class="form-control" id="selectStatus" name="TipoContrato">
+                                                                <option value="" disabled selected hidden> </option>
                                                                 <option value="Concursado">Concursado</option>
                                                                 <option value="Contratado">Contradado</option>
                                                             </select>

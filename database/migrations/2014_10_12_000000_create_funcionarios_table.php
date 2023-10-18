@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
-            $table->string('image',300);
+            $table->string('image', 300);
             $table->string('cargo');
+            $table->string('TipoUsuario');
             $table->string('TipoContrato');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

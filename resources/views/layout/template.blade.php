@@ -9,6 +9,7 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.png') }}">
 </head>
 
@@ -33,9 +34,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('help') }}">Help</a>
                         </li>
+
+                        @if(auth()->check() && auth()->user()->TipoUsuario === 'Administrador')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('funcionario') }}">Funcionários</a>
                         </li>
+                        @endif
+
                     </ul>
                 </div>
             </div>
@@ -47,7 +52,7 @@
                     <ul class="dropdown-menu dropdown-menu-lg-end">
                         <li><a class="dropdown-item" href="{{ route ('perfil') }}">Perfil</a></li>
                         <li><a class="dropdown-item" href="{{ route ('configuracao') }}">Configuração</a></li>
-                        <li><a class="dropdown-item" href="{{ route('login.page') }}">Sair</a></li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                     </ul>
                 </div>
             </div>
@@ -60,6 +65,7 @@
     <script src="{{ asset('js/clock-timer/clock.js') }}"></script>
     <script src="{{ asset('js/chartCollum.js') }}"></script>
     <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
 </body>
 
 </html>

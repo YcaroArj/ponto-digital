@@ -35,13 +35,9 @@ class UserController extends AbstractBaseController
         ])->onlyInput('email');
     }
 
-    // public function createUser(Request $request)
-    // {
-    //     $data = $request->all();
-    //     $data['password'] = \Hash::make($data['password']);
-
-    //     User::create($data);
-
-    //     return redirect()->back();
-    // }
+    public function fazerLogout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
 }

@@ -88,12 +88,6 @@
     border-radius: 20px;
     box-shadow: 0px 0px 30px 4px rgba(0, 0, 0, 0.3);
 }
-.div-container-funcionarios {
-    padding: 30px;
-    height: 500px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 30px 4px rgba(0, 0, 0, 0.3);
-}
 
 .card-user {
     padding: 30px;
@@ -535,6 +529,15 @@ body.dark-theme {
 }
 
 /*---- View Funcionários ----*/
+
+.div-container-funcionarios {
+    padding: 30px;
+    height: 520px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px 4px rgba(0, 0, 0, 0.3);
+}
+
+
 .btn-cad {
     height: 50px;
     width: 250px;
@@ -574,18 +577,23 @@ body.dark-theme {
     border-radius: 10px;
 }
 
-.table-Users {
-    margin-top: 20px;
-}
-
 .table-Users thead {
     color: var(--secondary);
 }
 
 .table-wrapper {
-    max-height: 500px;
+    margin-top: 10px;
+    max-height: 400px;
     overflow-y: auto;
 }
+
+.table-wrapper table thead{
+    position: sticky;
+    z-index: 1;
+    top: 0px;
+    background: var(--secondary);
+    color: var(--white);
+} 
 
 .table-Users .fav-icon-edit {
     cursor: pointer;

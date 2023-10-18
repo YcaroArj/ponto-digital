@@ -8,6 +8,24 @@
 <div class="div-content">
     <div class="div-container">
         <div class="container text-center">
+            @if(session('success'))
+            <div class="alert alert-success" role="alert" id="liveAlertPlaceholder" style="display: flex; justify-content: space-between;">
+                {{ session('success') }}
+                <button class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            @endif
+            @if(session('warning'))
+            <div class="alert alert-warning" role="alert" id="liveAlertPlaceholder" style="display: flex; justify-content: space-between;">
+                {{ session('warning') }}
+                <button class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            @endif
+            @if(session('danger'))
+            <div class="alert alert-danger" role="alert" id="liveAlertPlaceholder" style="display: flex; justify-content: space-between;">
+                {{ session('danger') }}
+                <button class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            @endif
             <div class="container">
                 <div class="row">
                     <div class="col-clock col-sm">
@@ -31,9 +49,6 @@
                                                 <p class="clock__text-hour" id="text-hour">00:</p>
                                                 <p class="clock__text-minutes" id="text-minutes">00:</p>
                                                 <p class="clock__text-seconds" id="text-seconds">00</p>
-                                                <!-- <div class="clock__text-hour" id="text-hour"></div>
-                                                <div class="clock__text-minutes" id="text-minutes"></div>
-                                                <div class="clock__text-seconds" id="text-seconds"></div> -->
                                             </div>
                                             <div class="clock__text-ampm" id="text-ampm"></div>
                                         </div>

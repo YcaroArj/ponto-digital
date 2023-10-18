@@ -17,12 +17,13 @@ class User extends Authenticatable
         'nome',
         'image',
         'cargo',
+        'TipoUsuario',
         'TipoContrato',
         'email',
         'password',
     ];
 
-    
+
     protected $hidden = [
         'password',
         'remember_token',

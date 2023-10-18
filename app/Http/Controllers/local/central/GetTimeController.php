@@ -14,6 +14,12 @@ class GetTimeController extends AbstractBaseController
     protected $getTime;
     protected $dayQuery;
     protected $CreateEntry;
+    protected $warningMessage;
+    protected $dangerMessage;
+    protected $dangerLunchMessage;
+    protected $dangerReturnLunchMessage;
+    protected $dangerExitMessage;
+    protected $successMessage;
 
     public function __construct()
     {
@@ -22,6 +28,10 @@ class GetTimeController extends AbstractBaseController
         $this->pagesPath = 'pages.central.bater_ponto.lista';
         $this->getDay = date('Y:m:d');
         $this->getTime = date('H:i:s');
+        $this->warningMessage = 'Horário já cadastrado!!';
+        $this->dangerMessage = 'Erro Ao inserir Horário: Horário de entrada não preenchido!!';
+        $this->dangerReturnLunchMessage = 'Erro Ao inserir Horário: Horário de Almoço não preenchido!!';
+        $this->successMessage = 'Horário inserido com Sucesso!!';
     }
 
     public function getEntryTime()
@@ -37,10 +47,11 @@ class GetTimeController extends AbstractBaseController
         );
 
         if ($dayQueryByID == true) {
+            return redirect()->back()->with('warning', $this->warningMessage);
         } else {
             Horario::create($createEntry);
         }
-        return redirect()->back();
+        return redirect()->back()->with('success', $this->successMessage);
     }
 
 
@@ -52,7 +63,7 @@ class GetTimeController extends AbstractBaseController
 
         if ($dayQuery == true) {
 
-            $timeQuery = DB::select("SELECT saidaAlmoco FROM horarios WHERE saidaAlmoco is null AND dia = '$this->getDay'");
+            $timeQuery = DB::select("SELECT saidaAlmoco FROM horarios WHERE saidaAlmoco is null AND dia = '$this->getDay' AND entrada is not null");
 
             if ($timeQuery) {
                 DB::table('horarios')
@@ -60,11 +71,12 @@ class GetTimeController extends AbstractBaseController
                     ->where('userid', $id)
                     ->update(['saidaAlmoco' => $this->getTime]);
             } else {
-                return redirect()->back();
+                return redirect()->back()->with('warning', $this->warningMessage);
             }
+        } else {
+            return redirect()->back()->with('danger', $this->dangerMessage);
         }
-
-        return redirect()->back();
+        return redirect()->back()->with('success', $this->successMessage);
     }
 
     public function getReturnTime()
@@ -83,10 +95,12 @@ class GetTimeController extends AbstractBaseController
                     ->where('userid', $id)
                     ->update(['retornoAlmoco' => $this->getTime]);
             } else {
-                echo "<script type='javascript'>alert('Email enviado com Sucesso!');";
+                return redirect()->back()->with('warning', $this->warningMessage);
             }
+        } else {
+            return redirect()->back()->with('danger', $this->dangerReturnLunchMessage);
         }
-        return redirect()->back();
+        return redirect()->back()->with('success', $this->successMessage);
     }
 
     public function GetExit()
@@ -105,10 +119,11 @@ class GetTimeController extends AbstractBaseController
                     ->where('userid', $id)
                     ->update(['saida' => $this->getTime]);
             } else {
-                return redirect()->back();
+                return redirect()->back()->with('warning', $this->warningMessage);
             }
+        } else {
+            return redirect()->back()->with('danger', $this->dangerMessage);
         }
-
-        return redirect()->back();
+        return redirect()->back()->with('success', $this->successMessage);
     }
 }
