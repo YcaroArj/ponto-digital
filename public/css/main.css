@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600&family=Inter:wght@300;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,700;1,100;1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600&family=Inter:wght@300;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,700;1,100;1,600&display=swap");
 
 * {
     margin: 0;
@@ -8,44 +8,44 @@
 }
 
 :root {
-    --primary: #43C6D9;
-    --secondary: #04344B;
+    --primary: #43c6d9;
+    --secondary: #04344b;
     --third: #2b83ac;
     --white: #fff;
     --black: #000;
     /*========== Colors ==========*/
-  --hue-color: 240;
+    --hue-color: 240;
 
-  --first-color: hsl(var(--hue-color), 53%, 49%);
-  --title-color: hsl(var(--hue-color), 53%, 15%);
-  --text-color: hsl(var(--hue-color), 12%, 35%);
-  --text-color-light: hsl(var(--hue-color), 12%, 65%);
-  --white-color: #FFF;
-  --body-color: hsl(var(--hue-color), 24%, 94%);
+    --first-color: hsl(var(--hue-color), 53%, 49%);
+    --title-color: hsl(var(--hue-color), 53%, 15%);
+    --text-color: hsl(var(--hue-color), 12%, 35%);
+    --text-color-light: hsl(var(--hue-color), 12%, 65%);
+    --white-color: #fff;
+    --body-color: hsl(var(--hue-color), 24%, 94%);
 
-  /*========== Font and typography ==========*/
-  --body-font: 'Poppins', sans-serif;
-  --biggest-font-size: 3rem;
-  --small-font-size: .813rem;
-  --smaller-font-size: .75rem;
-  --tiny-font-size: .625rem;
+    /*========== Font and typography ==========*/
+    --body-font: "Poppins", sans-serif;
+    --biggest-font-size: 3rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
+    --tiny-font-size: 0.625rem;
 
-  /*========== Font weight ==========*/
-  --font-medium: 500;
+    /*========== Font weight ==========*/
+    --font-medium: 500;
 
-  /*========== Margenes Bottom ==========*/
-  --mb-0-25: .25rem;
-  --mb-1: 1rem;
-  --mb-1-5: 1.5rem;
-  --mb-2-5: 2.5rem;
+    /*========== Margenes Bottom ==========*/
+    --mb-0-25: 0.25rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2-5: 2.5rem;
 
-  /*========== z index ==========*/
-  --z-normal: 1;
-  --z-tooltip: 10;
+    /*========== z index ==========*/
+    --z-normal: 1;
+    --z-tooltip: 10;
 }
 
 .nav {
-    background: linear-gradient(100deg ,var(--primary), var(--secondary));
+    background: linear-gradient(100deg, var(--primary), var(--secondary));
     padding: 10px 100px;
 }
 
@@ -55,27 +55,27 @@
     font-weight: 700;
 }
 
-.collapse ul li a{
+.collapse ul li a {
     position: relative;
     left: 40px;
     color: var(--white);
     font-size: 1.1rem;
 }
 
-.collapse ul li a:hover{
+.collapse ul li a:hover {
     color: var(--primary);
 }
 
-.dropdown-menu{
+.dropdown-menu {
     background: var(--secondary);
 }
 
-.perfil h3{
+.perfil h3 {
     color: var(--white);
     font-size: 1rem;
 }
 
-.btn-group ul li a{
+.btn-group ul li a {
     color: var(--white);
 }
 
@@ -86,23 +86,29 @@
 .div-container {
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0px 0px 30px 4px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 30px 4px rgba(0, 0, 0, 0.3);
+}
+.div-container-funcionarios {
+    padding: 30px;
+    height: 500px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px 4px rgba(0, 0, 0, 0.3);
 }
 
-.card-user{
+.card-user {
     padding: 30px;
     border-radius: 20px;
     height: 500px;
-    box-shadow: 0px 0px 30px 4px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 30px 4px rgba(0, 0, 0, 0.3);
 }
 
-.div-info{
+.div-info {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.info-user{
+.info-user {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -113,22 +119,21 @@
     margin-top: 40px;
 }
 
-.info-user h1{
+.info-user h1 {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary);
 }
 
-.info-user h2{
+.info-user h2 {
     font-size: 1.4rem;
     color: var(--secondary);
 }
 
-.info-user h3{
+.info-user h3 {
     font-size: 1.2rem;
     color: var(--secondary);
 }
-
 
 .info-carga-h {
     flex-direction: column;
@@ -137,13 +142,13 @@
     justify-content: center;
 }
 
-.info-carga-h h1{
+.info-carga-h h1 {
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--secondary);
 }
 
-.info-carga-h h2{
+.info-carga-h h2 {
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--secondary);
@@ -182,7 +187,7 @@
 
 .card-hour-t h3,
 .card-hour-e h3,
-.card-falta h3{
+.card-falta h3 {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--white);
@@ -190,12 +195,11 @@
 
 .card-hour-t p,
 .card-hour-e p,
-.card-falta p{
+.card-falta p {
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--black);
 }
-
 
 .col-ponto {
     height: 250px;
@@ -208,7 +212,7 @@
     height: 150px;
     width: 300px;
     border: none;
-    background: linear-gradient(100deg ,var(--primary), var(--secondary));
+    background: linear-gradient(100deg, var(--primary), var(--secondary));
     color: white;
     font-weight: 700;
     font-size: 1.1rem;
@@ -219,15 +223,11 @@
     height: 70px;
     width: 300px;
     border: none;
-    background: linear-gradient(100deg ,var(--primary), var(--secondary));
+    background: linear-gradient(100deg, var(--primary), var(--secondary));
     color: white;
     font-weight: 700;
     font-size: 1rem;
     border-radius: 10px;
-}
-
-.btn-help:hover{
-  color: wheat;
 }
 
 .col-clock {
@@ -236,210 +236,205 @@
     justify-content: center;
 }
 
-
 @media screen and (min-width: 968px) {
     :root {
-      --biggest-font-size: 3.5rem;
-      --small-font-size: .875rem;
-      --smaller-font-size: .813rem;
-      --tiny-font-size: .75rem;
+        --biggest-font-size: 3.5rem;
+        --small-font-size: 0.875rem;
+        --smaller-font-size: 0.813rem;
+        --tiny-font-size: 0.75rem;
     }
-  }
+}
 
-  /*========== Variables Dark theme ==========*/
-  body.dark-theme {
+/*========== Variables Dark theme ==========*/
+body.dark-theme {
     --title-color: hsl(var(--hue-color), 12%, 95%);
     --text-color: hsl(var(--hue-color), 12%, 75%);
     --body-color: hsl(var(--hue-color), 10%, 16%);
-  }
+}
 
+/*=============== REUSABLE CSS CLASSES ===============*/
 
-  /*=============== REUSABLE CSS CLASSES ===============*/
-
-  .clock__circle {
+.clock__circle {
     position: relative;
     width: 200px;
     height: 200px;
     box-shadow: -6px -6px 16px var(--white-color),
-                6px 6px 16px hsla(var(--hue-color), 30%, 86%, 1),
-                inset 6px 6px 16px hsla(var(--hue-color), 30%, 86%, 1),
-                inset -6px -6px 16px var(--white-color);
+        6px 6px 16px hsla(var(--hue-color), 30%, 86%, 1),
+        inset 6px 6px 16px hsla(var(--hue-color), 30%, 86%, 1),
+        inset -6px -6px 16px var(--white-color);
     border-radius: 50%;
     justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: .4s;
-  }
+    transition: 0.4s;
+}
 
-  .clock__content {
+.clock__content {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  }
+}
 
-  .clock__twelve,
-  .clock__three,
-  .clock__six,
-  .clock__nine {
+.clock__twelve,
+.clock__three,
+.clock__six,
+.clock__nine {
     position: absolute;
     width: 1rem;
     height: 1px;
     background-color: var(--text-color-light);
-  }
+}
 
-  .clock__twelve,
-  .clock__six {
+.clock__twelve,
+.clock__six {
     transform: translateX(-50%) rotate(90deg);
-  }
+}
 
-  .clock__twelve {
+.clock__twelve {
     top: 1.25rem;
     left: 50%;
-  }
+}
 
-  .clock__three {
+.clock__three {
     top: 50%;
-    right: .75rem;
-  }
+    right: 0.75rem;
+}
 
-  .clock__six {
+.clock__six {
     bottom: 1.25rem;
     left: 50%;
-  }
+}
 
-  .clock__nine {
-    left: .75rem;
+.clock__nine {
+    left: 0.75rem;
     top: 50%;
-  }
+}
 
-  .clock__rounder {
-    width: .75rem;
-    height: .75rem;
+.clock__rounder {
+    width: 0.75rem;
+    height: 0.75rem;
     background-color: var(--first-color);
     border-radius: 50%;
     border: 2px solid var(--body-color);
     z-index: var(--z-tooltip);
-  }
+}
 
-  .clock__hour,
-  .clock__minutes,
-  .clock__seconds {
+.clock__hour,
+.clock__minutes,
+.clock__seconds {
     position: absolute;
     display: flex;
     justify-content: center;
-  }
+}
 
-  .clock__hour {
+.clock__hour {
     width: 105px;
     height: 105px;
-  }
+}
 
-  .clock__hour::before {
-    content: '';
+.clock__hour::before {
+    content: "";
     position: absolute;
     background-color: var(--text-color);
-    width: .25rem;
+    width: 0.25rem;
     height: 3rem;
-    border-radius: .75rem;
+    border-radius: 0.75rem;
     z-index: var(--z-normal);
-  }
+}
 
-  .clock__minutes {
+.clock__minutes {
     width: 136px;
     height: 136px;
-  }
+}
 
-  .clock__minutes::before {
-    content: '';
+.clock__minutes::before {
+    content: "";
     position: absolute;
     background-color: var(--text-color);
-    width: .25rem;
+    width: 0.25rem;
     height: 4rem;
-    border-radius: .75rem;
+    border-radius: 0.75rem;
     z-index: var(--z-normal);
-  }
+}
 
-  .clock__seconds {
+.clock__seconds {
     width: 130px;
     height: 130px;
-  }
+}
 
-  .clock__seconds::before {
-    content: '';
+.clock__seconds::before {
+    content: "";
     position: absolute;
     background-color: var(--first-color);
-    width: .125rem;
+    width: 0.125rem;
     height: 5rem;
-    border-radius: .75rem;
+    border-radius: 0.75rem;
     z-index: var(--z-normal);
-  }
+}
 
-  .clock__logo {
+.clock__logo {
     width: max-content;
     justify-self: center;
     margin-bottom: var(--mb-2-5);
     font-size: var(--smaller-font-size);
     font-weight: var(--font-medium);
     color: var(--text-color-light);
-    transition: .3s;
-  }
+    transition: 0.3s;
+}
 
-  .clock__logo:hover {
+.clock__logo:hover {
     color: var(--first-color);
-  }
+}
 
-  .clock__text {
+.clock__text {
     display: flex;
     justify-content: center;
-  }
+}
 
-  .container-clock{
+.container-clock {
     width: 200px;
     display: flex;
     justify-content: center;
-  }
+}
 
-  .clock__text-hour,
-  .clock__text-minutes,
-  .clock__text-seconds {
+.clock__text-hour,
+.clock__text-minutes,
+.clock__text-seconds {
     font-size: var(--biggest-font-size);
     font-weight: var(--font-medium);
     color: var(--title-color);
-  }
+}
 
-  .clock__text-ampm {
+.clock__text-ampm {
     font-size: var(--tiny-font-size);
     color: var(--title-color);
     font-weight: var(--font-medium);
     margin-left: var(--mb-0-25);
-  }
+}
 
-  .clock__date {
+.clock__date {
     text-align: center;
     font-size: var(--small-font-size);
     font-weight: var(--font-medium);
-  }
+}
 
-  /*=============== MEDIA QUERIES ===============*/
-  /* For large devices */
-  @media screen and (min-width: 968px) {
+/*=============== MEDIA QUERIES ===============*/
+/* For large devices */
+@media screen and (min-width: 968px) {
     .container {
-      margin-left: auto;
-      margin-right: auto;
+        margin-left: auto;
+        margin-right: auto;
     }
     .clock__logo {
-      margin-bottom: 3rem;
+        margin-bottom: 3rem;
     }
-  }
+}
 
+/*============= DADOS DO PERFIL ===============*/
 
-
-  /*============= DADOS DO PERFIL ===============*/
-
-
-.coluna-dados{
+.coluna-dados {
     display: flex;
     flex-direction: column;
 }
@@ -447,33 +442,33 @@
 .input-perfil {
     margin-top: 20px;
     padding: 10px;
-    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     border: none;
     height: 40px;
 }
 
-.btn-perfil{
+.btn-perfil {
     display: flex;
     justify-content: flex-end;
 }
 
-.btn-perfil button{
+.btn-perfil button {
     margin-top: 20px;
     border: none;
     height: 40px;
     width: 150px;
     border-radius: 10px;
     color: var(--white);
-    background: linear-gradient(92deg ,var(--primary), var(--secondary));
+    background: linear-gradient(92deg, var(--primary), var(--secondary));
 }
 
-.info{
+.info {
     display: flex;
     justify-content: center;
 }
 
-.info h1{
+.info h1 {
     font-size: 1.5rem;
     font-weight: 500;
 }
@@ -484,7 +479,7 @@
     border-radius: 50%;
     overflow: hidden;
     background-color: #ccc;
- }
+}
 
 .profile-icon img {
     width: 100%;
@@ -498,7 +493,7 @@
     border-radius: 50%;
     overflow: hidden;
     background-color: #ccc;
- }
+}
 
 .profile-icon-layout img {
     width: 100%;
@@ -506,36 +501,114 @@
     object-fit: cover; /* Redimensiona a imagem para caber no círculo */
 }
 
-
-.coluna-perfil{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.coluna-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.coluna-perfil form{
-  display: flex;
-  flex-direction: column;
+.coluna-perfil form {
+    display: flex;
+    flex-direction: column;
 }
 
 .coluna-perfil form button {
-  margin-top: 20px;
-  border: none;
-  height: 40px;
-  border-radius: 10px;
-  color: var(--white);
-  background: linear-gradient(92deg ,var(--primary), var(--secondary));
+    margin-top: 20px;
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+    color: var(--white);
+    background: linear-gradient(92deg, var(--primary), var(--secondary));
 }
 
 .table-col {
     padding: 30px;
     height: 500px;
     border-radius: 20px;
-    box-shadow: 0px 0px 30px 4px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 30px 4px rgba(0, 0, 0, 0.3);
 }
 
-.table-col a{
-  color: var(--secondary);
-  display: flex;
-  justify-content: flex-end;
+.table-col a {
+    color: var(--secondary);
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*---- View Funcionários ----*/
+.btn-cad {
+    height: 50px;
+    width: 250px;
+    border: none;
+    background: linear-gradient(100deg, var(--primary), var(--secondary));
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+.modal-header {
+    background: var(--secondary);
+    color: var(--white);
+    font-weight: 700;
+}
+
+.btn-modal {
+    width: 100px;
+    height: 40px;
+    margin-left: 10px;
+    color: var(--white);
+    font-size: 1rem;
+    background: var(--secondary);
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-delet {
+    width: 100px;
+    height: 40px;
+    margin-left: 10px;
+    color: var(--white);
+    font-size: 1rem;
+    background: #ff5a54;
+    border: none;
+    border-radius: 10px;
+}
+
+.table-Users {
+    margin-top: 20px;
+}
+
+.table-Users thead {
+    color: var(--secondary);
+}
+
+.table-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.table-Users .fav-icon-edit {
+    cursor: pointer;
+    color: green;
+}
+
+.table-Users .fav-icon-delet {
+    cursor: pointer;
+    color: red;
+}
+
+.modal-delet,
+.footer-delet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-delet img {
+    height: 60px;
+    width: 60px;
+}
+
+.header-delet {
+    background: #ff5a54;
 }

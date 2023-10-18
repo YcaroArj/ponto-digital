@@ -35,12 +35,13 @@ class UserController extends AbstractBaseController
         ])->onlyInput('email');
     }
 
-    public function CadastrarFuncionario(Request $request)
-    {
-        $data = $request->all();
+    // public function createUser(Request $request)
+    // {
+    //     $data = $request->all();
+    //     $data['password'] = \Hash::make($data['password']);
 
-        User::create($data);
+    //     User::create($data);
 
-        return view('welcome');
-    }
+    //     return redirect()->back();
+    // }
 }

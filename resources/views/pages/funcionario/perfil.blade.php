@@ -13,11 +13,8 @@
                         <h1>Alterar Dados</h1>
                     </div>
 
-                    <input class="input-perfil" type="text" name="nome" id="nome" placeholder="Nome" value="{{Auth::user()->nome}}">
-                    <input class="input-perfil" type="text" name="email" id="email" placeholder="E-mail" value="{{Auth::user()->email}}">
-                    <div class="btn-perfil">
-                        <button>Salvar</button>
-                    </div>
+                    <input class="input-perfil" type="text" name="nome" id="nome" placeholder="Nome" value="{{Auth::user()->nome}}" disabled="">
+                    <input class="input-perfil" type="text" name="email" id="email" placeholder="E-mail" value="{{Auth::user()->email}}" disabled="">
 
                     <hr>
                     <div class="info">
@@ -40,12 +37,12 @@
                         @endif
                     </div>
                     @endforeach
-                    <form action="{{ route('up.icon') }}" method="POST" enctype="multipart/form-data">
+                    <!-- <form action="{{ route('up.icon') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <label for="imagem">Imagem de Perfil: </label>
                         <input type="file" id="image" name="image" class="from-control-file">
                         <button type="submit">Salvar</button>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </div>

@@ -170,10 +170,6 @@ input:focus ~ i {
     border-radius: 10px;
 }
 
-.modal-header {
-    background: var(--primary);
-}
-
 /* ----  Responsiveness   ----  */
 @media (max-width: 780px) {
 

@@ -43,12 +43,4 @@ class PerfilController extends AbstractBaseController
 
         return redirect()->back();
     }
-
-    public function AlterarDados(Request $request)
-    {
-        $id = Auth::id();
-        $data = $request->all();
-
-        dd($data);
-    }
 }
