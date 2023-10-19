@@ -160,12 +160,9 @@
                                                 <div class="row">
                                                     <div class="col-sm">
                                                         <div class="mb-3">
-
                                                             <label for="exampleInputEmail1" class="form-label">Cargo</label>
                                                             <select class="form-control" id="selectStatus" name="cargo">
-                                                                <option value="" disabled selected hidden>
-
-                                                                </option>
+                                                                <option value="" disabled selected hidden></option>
                                                                 <option value="Secretário de Educação">Secretário de Educação</option>
                                                                 <option value="Sub-Secretário de Educação">Sub-Secretário de Educação</option>
                                                                 <option value="Assessor l">Assessor l</option>
@@ -192,6 +189,16 @@
                                                         <div class="mb-3">
                                                             <label for="exampleInputPassword1" class="form-label">Senha</label>
                                                             <input type="password" name="password" class="form-control" id="exampleInputPassword1" value="{{$item->password}}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputEmail1" class="form-label">Tipo de Usuário</label>
+                                                            <select class="form-control" id="selectStatus" name="TipoUsuario">
+                                                                <option value="" disabled selected hidden></option>
+                                                                <option value="Padrão">Padrão</option>
+                                                                <option value="Administrador">Administrador</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>

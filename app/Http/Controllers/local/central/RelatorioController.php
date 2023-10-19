@@ -27,6 +27,10 @@ class RelatorioController extends AbstractBaseController
             ->whereMonth('dia', $month)
             ->get();
 
+        $getAll = DB::table('horarios')
+            ->where('userid', $id)
+            ->get();
+
         $sumTimeWorked = 0;
 
         /*---- Calcula as Horas Trabalhadas----*/
@@ -102,6 +106,7 @@ class RelatorioController extends AbstractBaseController
             'sumTimeWorked' => $sumTimeWorked,
             'getMonth' => $getMonth,
             'workload' => $workload,
+            'getAll' => $getAll,
             'totalOverTime' => $totalOverTime,
             'fouls' => $fouls,
             'img' => $img

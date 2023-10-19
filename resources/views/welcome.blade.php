@@ -51,42 +51,77 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form method="POST">
-                                    @csrf
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Nome</label>
-                                        <input type="text" name="nome" class="form-control">
+                                <form action="{{ route('create_user') }}" method="POST"> @csrf <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Nome</label>
+                                                    <input type="text" name="nome" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">E-mail</label>
+                                                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Cargo</label>
+                                                    <select class="form-control" id="selectStatus" name="cargo">
+                                                        <option value="" disabled selected hidden> </option>
+                                                        <option value="Secretário de Educação">Secretário de Educação</option>
+                                                        <option value="Sub-Secretário de Educação">Sub-Secretário de Educação</option>
+                                                        <option value="Assessor l">Assessor l</option>
+                                                        <option value="Assessor ll">Assessor ll</option>
+                                                        <option value="Assessor lll">Assessor lll</option>
+                                                        <option value="Estágiario">Estágiario</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Tipo de Contrato</label>
+                                                    <select class="form-control" id="selectStatus" name="TipoContrato">
+                                                        <option value="" disabled selected hidden></option>
+                                                        <option value="Concursado">Concursado</option>
+                                                        <option value="Contratado">Contradado</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <div class="mb-3">
+                                                    <label for="exampleInputPassword1" class="form-label">Senha</label>
+                                                    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Tipo de Usuário</label>
+                                                    <select class="form-control" id="selectStatus" name="TipoUsuario">
+                                                        <option value="" disabled selected hidden></option>
+                                                        <option value="Padrão">Padrão</option>
+                                                        <option value="Administrador">Administrador</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!-- <input type="file" id="image" name="image" class="from-control-file"> -->
+                                            <div class="mb-3">
+                                                <label for="formFile" class="form-label">Escolher foto de perfil</label>
+                                                <input class="form-control" type="file" id="image" name="image">
+                                            </div>
+                                            <div class="row" style="display: flex; justify-content: flex-end;">
+                                                <button type="button" class="btn-modal btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                <button type="submit" class="btn-modal btn-primary">Cadastrar</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Cargo</label>
-                                        <select class="form-control" id="selectStatus" name="cargo">
-                                            <option value="Assessor l">Secretário de Educação</option>
-                                            <option value="Assessor l">Sub-Secretário de Educação</option>
-                                            <option value="Assessor l">Assessor l</option>
-                                            <option value="Assessor ll">Assessor ll</option>
-                                            <option value="Assessor lll">Assessor lll</option>
-                                            <option value="Estágiario">Estágiario</option>
-                                            <ion-icon name="chevron-down-outline"></ion-icon>
-                                        </select>
-
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Tipo de Contrato</label>
-                                        <select class="form-control" id="selectStatus" name="TipoContrato">
-                                            <option value="Concursado">Concursado</option>
-                                            <option value="Contratado">Contradado</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">E-mail</label>
-                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputPassword1" class="form-label">Senha</label>
-                                        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-                                    </div>
-                                    <button type="button" class="btnFec btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                    <button type="submit" class="btnCad btn-primary">Cadastrar</button>
                                 </form>
                             </div>
                         </div>

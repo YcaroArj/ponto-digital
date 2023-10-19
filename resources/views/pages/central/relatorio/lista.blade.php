@@ -59,7 +59,7 @@
                             @php
                             use Carbon\Carbon;
                             @endphp
-                            @foreach ($getMonth->reverse()->take(10) as $item)
+                            @foreach ($getMonth->reverse()->take(9) as $item)
                             <tr>
                                 <th scope="row">{{ Carbon::parse($item->dia)->format('d') }}</th>
                                 <td>{{ $item->entrada }}</td>
@@ -70,7 +70,46 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <a href="">Ver todos os Registros</a>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">Ver todos os Registros</a>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Tabela de Horários</h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class=" table-wrapper">
+                                        <table class="table-Users table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Dia</th>
+                                                    <th scope="col">Entrada</th>
+                                                    <th scope="col">Saida para Almoco</th>
+                                                    <th scope="col">Retorno do Almoco</th>
+                                                    <th scope="col">Saida</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($getAll->reverse() as $item)
+                                                <tr>
+                                                    <th scope="row">{{ Carbon::parse($item->dia)->format('d/m/Y') }}</th>
+                                                    <td>{{ $item->entrada }}</td>
+                                                    <td>{{ $item->saidaAlmoco }}</td>
+                                                    <td>{{ $item->retornoAlmoco }}</td>
+                                                    <td>{{ $item->saida }}</td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-modal btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>

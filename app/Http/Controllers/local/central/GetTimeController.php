@@ -95,10 +95,10 @@ class GetTimeController extends AbstractBaseController
                     ->where('userid', $id)
                     ->update(['retornoAlmoco' => $this->getTime]);
             } else {
-                return redirect()->back()->with('warning', $this->warningMessage);
+                return redirect()->back()->with('danger', $this->dangerReturnLunchMessage);
             }
         } else {
-            return redirect()->back()->with('danger', $this->dangerReturnLunchMessage);
+            return redirect()->back()->with('warning', $this->warningMessage);
         }
         return redirect()->back()->with('success', $this->successMessage);
     }

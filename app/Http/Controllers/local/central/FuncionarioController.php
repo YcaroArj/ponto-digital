@@ -64,7 +64,6 @@ class FuncionarioController extends AbstractBaseController
 
             return redirect()->back()->with('error', $this->errorMessage);
         } else {
-
             $data['password'] = Hash::make($data['password']);
             User::create($data);
             return redirect()->back()->with('success', $this->successCreateMessage);
@@ -73,13 +72,16 @@ class FuncionarioController extends AbstractBaseController
 
     public function update(Request $request, $id)
     {
+
         $data = [
             'nome' => $request->nome,
             'email' => $request->email,
             'cargo' => $request->cargo,
             'TipoContrato' => $request->TipoContrato,
             'password' => $request->password,
+            'TipoUsuario' => $request->TipoUsuario,
         ];
+
         $data['password'] = Hash::make($data['password']);
 
         if (is_array($data) && count(array_filter($data, function ($value) {
