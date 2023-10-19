@@ -10,11 +10,13 @@ use App\Models\User;
 
 class UserController extends AbstractBaseController
 {
+    protected $dangerMessage;
     public function __construct()
     {
         date_default_timezone_set('America/Sao_Paulo');
         parent::__construct();
         $this->pagesPath = 'welcome';
+        $this->dangerMessage = "E-mail ou senha incorretos";
     }
 
     public function auth(Request $request): RedirectResponse
@@ -30,9 +32,7 @@ class UserController extends AbstractBaseController
             return redirect()->intended('Home');
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        return redirect()->back()->with('danger', $this->dangerMessage);
     }
 
     public function fazerLogout()

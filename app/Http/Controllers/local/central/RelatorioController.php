@@ -101,7 +101,9 @@ class RelatorioController extends AbstractBaseController
 
             $totalOverTime = $totalOverTime  + $overTime;
         }
+
         $img = DB::select("SELECT `image` FROM `funcionarios` WHERE `id` = '$id'");
+
         $data = array(
             'sumTimeWorked' => $sumTimeWorked,
             'getMonth' => $getMonth,

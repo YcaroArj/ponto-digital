@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('web')->group(base_path('routes/local/User.php'));
 
-Route::prefix('Home')->middleware('web')->group(function () {
-
+Route::prefix('Home')->middleware(['web', 'auth'])->group(function () {
     Route::middleware('web')->group(function () {
         Route::middleware('web')->group(base_path('routes/local/BaterPonto.php'));
         Route::middleware('web')->group(base_path('routes/local/Relatorio.php'));

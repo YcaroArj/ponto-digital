@@ -76,21 +76,27 @@ class FuncionarioController extends AbstractBaseController
         $data = [
             'nome' => $request->nome,
             'email' => $request->email,
+            'image' => $request->image,
             'cargo' => $request->cargo,
             'TipoContrato' => $request->TipoContrato,
             'password' => $request->password,
             'TipoUsuario' => $request->TipoUsuario,
         ];
 
-        $data['password'] = Hash::make($data['password']);
-
-        if (is_array($data) && count(array_filter($data, function ($value) {
-            return $value !== null;
-        })) === count($data)) {
-            User::where('id', $id)->update($data);
+        if (empty($data['password'])) {
+            unset($data['password']);
         } else {
-            return redirect()->back()->with('error', $this->errorMessage);
+            $data['password'] = bcrypt($data['password']);
         }
+
+        if ($request->hasFile('image')) {
+            $fileName = time() . $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('icons', $fileName, 'custom');
+
+            $data['image'] = $path;
+        }
+
+        User::where('id', $id)->update($data);
 
         return redirect()->back()->with('success', $this->successMessage);
     }
