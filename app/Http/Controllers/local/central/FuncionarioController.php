@@ -56,9 +56,7 @@ class FuncionarioController extends AbstractBaseController
     public function createUser(Request $request)
     {
         $data = $request->all();
-
         if (User::where('email', $data['email'])->exists()) {
-
             return redirect()->back()->with('error', $this->errorEmailMessage);
         } elseif (empty($data['password'])) {
 
