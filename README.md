@@ -1,8 +1,6 @@
 
 # Ponto Digital
-<h2>Interfaces</h2>
-<h3>Home</h3>
-![image](https://github.com/user-attachments/assets/c9d30187-0c93-4b3e-9d08-57a82f39b687)
-<h3>Funcionários</h3>
-![image](https://github.com/user-attachments/assets/25a95915-c63a-4e85-862c-b3d2e5150adf)
+## Interfaces
+![image](https://github.com/user-attachments/assets/8837bfe1-1be4-4594-89d8-d4c48658e60a)
 
+![image](https://github.com/user-attachments/assets/244ee463-f0bf-4e52-9e2c-dd90fb0ba6b1)
