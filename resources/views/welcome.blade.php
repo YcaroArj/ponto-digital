@@ -52,7 +52,9 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="{{ route('create_user') }}" method="POST"> @csrf <div class="container">
+                                <form action="{{ route('create.user') }}" method="POST">
+                                    @csrf
+                                    <div class="container">
                                         <div class="row">
                                             <div class="col-sm">
                                                 <div class="mb-3">
@@ -113,15 +115,9 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <!-- <input type="file" id="image" name="image" class="from-control-file"> -->
-                                            <div class="mb-3">
-                                                <label for="formFile" class="form-label">Escolher foto de perfil</label>
-                                                <input class="form-control" type="file" id="image" name="image">
-                                            </div>
-                                            <div class="row" style="display: flex; justify-content: flex-end;">
-                                                <button type="button" class="btn-modal btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                                <button type="submit" class="btn-modal btn-primary">Cadastrar</button>
-
+                                            <div style="display: flex; justify-content: space-evenly;">
+                                                <button type="button" class="btnFec" data-bs-dismiss="modal">Fechar</button>
+                                                <button type="submit" class="btnCad">Cadastrar</button>
                                             </div>
                                         </div>
                                     </div>

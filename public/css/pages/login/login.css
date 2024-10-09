@@ -152,7 +152,7 @@ input:focus ~ i {
 }
 
 .btnCad{
-    width: 100px;
+    width: 200px;
     height: 40px;
     color: var(--white);
     font-size: 1rem;
@@ -161,7 +161,7 @@ input:focus ~ i {
     border-radius: 10px;
 }
 .btnFec{
-    width: 100px;
+    width: 200px;
     height: 40px;
     color: var(--white);
     font-size: 1rem;

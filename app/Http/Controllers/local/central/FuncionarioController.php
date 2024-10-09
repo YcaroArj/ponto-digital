@@ -56,16 +56,17 @@ class FuncionarioController extends AbstractBaseController
     public function createUser(Request $request)
     {
         $data = $request->all();
-        if (User::where('email', $data['email'])->exists()) {
-            return redirect()->back()->with('error', $this->errorEmailMessage);
-        } elseif (empty($data['password'])) {
+        dd($data);
+        // if (User::where('email', $data['email'])->exists()) {
+        //     return redirect()->back()->with('error', $this->errorEmailMessage);
+        // } elseif (empty($data['password'])) {
 
-            return redirect()->back()->with('error', $this->errorMessage);
-        } else {
-            $data['password'] = Hash::make($data['password']);
-            User::create($data);
-            return redirect()->back()->with('success', $this->successCreateMessage);
-        }
+        //     return redirect()->back()->with('error', $this->errorMessage);
+        // } else {
+        //     $data['password'] = Hash::make($data['password']);
+        //     User::create($data);
+        //     return redirect()->back()->with('success', $this->successCreateMessage);
+        // }
     }
 
     public function update(Request $request, $id)

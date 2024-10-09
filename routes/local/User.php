@@ -6,5 +6,6 @@ use Illuminate\Support\Facades\Route;
 Route::controller(UserController::class)->group(function () {
     Route::get('/', 'index')->name('login.page');
     Route::get('/auth', 'auth')->name('auth.user');
+    Route::post('/createUserTeste', 'createUser')->name('create.user');
     Route::get('/logout', 'fazerLogout')->name('logout');
 });

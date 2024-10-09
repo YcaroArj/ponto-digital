@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends AbstractBaseController
 {
@@ -34,6 +35,22 @@ class UserController extends AbstractBaseController
 
         return redirect()->back()->with('danger', $this->dangerMessage);
     }
+
+    public function createUser(Request $request)
+    {
+        $data = $request->all();
+        if (User::where('email', $data['email'])->exists()) {
+            return redirect()->back();
+        } elseif (empty($data['password'])) {
+
+            return redirect()->back();
+        } else {
+            $data['password'] = Hash::make($data['password']);
+            User::create($data);
+            return redirect()->back();
+        }
+    }
+
 
     public function fazerLogout()
     {
